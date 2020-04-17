@@ -29,6 +29,7 @@ public class Login_Page extends PriceWatchDriver {
     private static By verifyButton = By.cssSelector(".btn.btn-default");
     private static By resendVerificationCode = By.partialLinkText("Resend Verification");
 
+    //Comment 123
     public static WebElement loginOnNavBar(){
         Waits.fluentWaitByLocator(driver, loginOnNavBar);
         return driver.findElement(loginOnNavBar);
