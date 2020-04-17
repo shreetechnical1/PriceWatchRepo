@@ -1,0 +1,6 @@
+http://192.168.1.61/PriceWatch
+http://www.walmart.com
+http://www.amazon.com
+http://www.bestbuy.com
+http://www.costco.com
+Chrome
