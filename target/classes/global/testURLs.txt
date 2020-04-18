@@ -3,4 +3,4 @@ http://www.walmart.com
 http://www.amazon.com
 http://www.bestbuy.com
 http://www.costco.com
-Chrome
+Edge
