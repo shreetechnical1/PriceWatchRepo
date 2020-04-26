@@ -67,8 +67,8 @@ public class Login_Steps extends PriceWatchDriver {
 
     }
 
-    @Then("User should get error message {string}")
-    public void user_should_get_error_message(String msg) {
+    @Then("User should get login error message {string}")
+    public void user_should_get_login_error_message(String msg) {
         assertEquals(Login_Page.loginFailureMsg().getText(), msg);
     }
 
@@ -103,14 +103,13 @@ public class Login_Steps extends PriceWatchDriver {
 
     }
 
-    @Then("User should get success message {string}")
-    public void user_should_get_success_message(String msg) {
+    @Then("User should get login success message {string}")
+    public void user_should_get_login_success_message(String msg) {
         assertEquals(Login_Page.registerSuccessMsg().getText(), msg);
     }
 
     @After
-    public void doSomethingAfter(){
-        // Do something after after scenario
+    public void closeBrowser(){
         tearDown();
     }
 

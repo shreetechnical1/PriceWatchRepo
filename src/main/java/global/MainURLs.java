@@ -19,7 +19,7 @@ public class MainURLs {
 
         public static String PriceWatchURL;
         public static String WalmartURL;
-        public static String AmazonURL;
+        public static String BhpPhotoURL;
         public static String BestBuyURL;
         public static String CostcoURL;
         public static String DriverName;
@@ -37,7 +37,7 @@ public class MainURLs {
                     w.newLine();
                     w.write("http://www.walmart.com");
                     w.newLine();
-                    w.write("http://www.amazon.com");
+                    w.write("http://www.bhphotovideo.com");
                     w.newLine();
                     w.write("http://www.bestbuy.com");
                     w.newLine();
@@ -60,7 +60,7 @@ public class MainURLs {
 
                 PriceWatchURL = l.get(0);
                 WalmartURL = l.get(1);
-                AmazonURL = l.get(2);
+               BhpPhotoURL = l.get(2);
                 BestBuyURL = l.get(3);
                 CostcoURL = l.get(4);
                 DriverName = l.get(5);

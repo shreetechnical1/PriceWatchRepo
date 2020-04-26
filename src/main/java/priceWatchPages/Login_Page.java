@@ -1,5 +1,6 @@
 package priceWatchPages;
 
+import global.MainURLs;
 import global.PriceWatchDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -29,7 +30,7 @@ public class Login_Page extends PriceWatchDriver {
     private static By verifyButton = By.cssSelector(".btn.btn-default");
     private static By resendVerificationCode = By.partialLinkText("Resend Verification");
 
-    //Comment 1234242342342
+
     public static WebElement loginOnNavBar(){
         Waits.fluentWaitByLocator(driver, loginOnNavBar);
         return driver.findElement(loginOnNavBar);
@@ -122,6 +123,15 @@ public class Login_Page extends PriceWatchDriver {
     public static WebElement resendVerificationCode(){
 
         return driver.findElement(resendVerificationCode);
+    }
+
+    public static void loginToPriceWatch(){
+        driver.get(MainURLs.URLList.PriceWatchURL);
+        Login_Page.loginOnNavBar().click();
+        Login_Page.userName().sendKeys("kiddyt");
+        Login_Page.password().sendKeys("123456");
+        Login_Page.loginButton().click();
+        Waits.waitForPageContent(driver, "Track." );
     }
 
 

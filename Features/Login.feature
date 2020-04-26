@@ -15,7 +15,7 @@ Feature: Login and registration
     And User clicks on Login link
     When User enters invalid username and password
     And clicks on Login button
-    Then User should get error message "ERROR! - Invalid username/password."
+    Then User should get login error message "ERROR! - Invalid username/password."
 
 
   Scenario: Test email verification message
@@ -23,7 +23,7 @@ Feature: Login and registration
     And User clicks on Login link
     When User enters valid username "Kiddy" and password "123456"
     And clicks on Login button
-    Then User should get error message "Your email is not verified. Please check your email for a verification code."
+    Then User should get login error message "Your email is not verified. Please check your email for a verification code."
 
 
   Scenario: Register new user
@@ -32,7 +32,7 @@ Feature: Login and registration
     When User clicks on Register new user
     And User enters username, password, email, phone number, first name, last name
     And User clicks on register button
-    Then User should get success message "Username registered successfully. An email verification code is sent to your registered email."
+    Then User should get login success message "Username registered successfully. An email verification code is sent to your registered email."
 
 
 
