@@ -44,6 +44,18 @@ Feature: Login and registration
     And User clicks on cancel link
     Then Page URL should be "http://192.168.1.61/PriceWatch/login"
 
+  Scenario: Verifying email verification code
+    Given User loads PriceWatch URL
+    And User clicks on Login link
+    When User clicks on Register new user
+    And User enters username, password, email, phone number, first name, last name
+    And User clicks on register button
+    And User clicks on verify your email link
+    And User enters email and verification code
+    And User clicks on verify button
+    Then User should get verification success message "Your email verification is successful."
+
+
 
 
 

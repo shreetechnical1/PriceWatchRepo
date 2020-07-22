@@ -83,7 +83,6 @@ public class TrackProductPage_Steps extends PriceWatchDriver {
     @When("User enters target price as {string}")
     public void user_enters_target_price_as(String price) {
         TrackProduct_Page.targetPrice().sendKeys(price);
-
     }
 
     @When("User clicks on Add tracking button for {string}")
@@ -141,5 +140,10 @@ public class TrackProductPage_Steps extends PriceWatchDriver {
     @Then("User should get track success message {string}")
     public void userShouldGetTrackSuccessMessage(String arg0) {
         assertEquals("Your desired target price is set. We will let you know thru registered email when the price drops to your target price.", TrackProduct_Page.trackProductSuccessMsg().getText());
+    }
+
+    @Then("User should get search error message {string}")
+    public void userShouldGetSearchErrorMessage(String msg) {
+        assertEquals(msg, TrackProduct_Page.searchProductErrorMsg().getText());
     }
 }

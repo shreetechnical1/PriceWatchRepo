@@ -43,7 +43,6 @@ public class ProductWatchList_Test extends PriceWatchDriver {
         Waits.fluentWaitByLocator(driver, ProductWatchList_Page.viewActiveWatchList);
         assertTrue(driver.getCurrentUrl().contains("trackproductlistdeleteditems"));
         assertTrue(driver.getPageSource().contains("Products in my old Tracking List."));
-
     }
 
     @Test
@@ -90,7 +89,7 @@ public class ProductWatchList_Test extends PriceWatchDriver {
         Waits.fluentWaitByLocator(driver, TrackProduct_Page.trackProductSuccessMsg);
         ProductWatchList_Page.productWatchListOnNavBar().click();
         WebElement card1 = ProductWatchList_Page.expandEcommCard("bhphotovideo");
-        assertEquals("2700.00", card1.findElements(By.tagName("td")).get(5).getText() );
+        assertEquals("2700.00", card1.findElements(By.tagName("td")).get(5).getText());
     }
 
     @Test

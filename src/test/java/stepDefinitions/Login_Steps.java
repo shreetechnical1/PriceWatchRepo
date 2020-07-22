@@ -7,10 +7,12 @@ import io.cucumber.java.en.*;
 
 
 import priceWatchPages.Login_Page;
+import utils.JDBCConnectionClass;
 import utils.RandomGeneration;
 import utils.Waits;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -81,7 +83,8 @@ public class Login_Steps extends PriceWatchDriver {
     public void user_enters_username_password_email_phone_number_first_name_last_name() {
         Login_Page.registerUserName().sendKeys(RandomGeneration.randomUserName());
         Login_Page.registerPassword().sendKeys("123456");
-        Login_Page.registerEmail().sendKeys(RandomGeneration.randomUserEmail());
+        Login_Page.registrationEmail = RandomGeneration.randomUserEmail();
+        Login_Page.registerEmail().sendKeys(Login_Page.registrationEmail);
         Login_Page.registerPhoneNumber().sendKeys("4567866522");
         Login_Page.registerFirstName().sendKeys("John");
         Login_Page.registerLastName().sendKeys("Smith");
@@ -92,8 +95,7 @@ public class Login_Steps extends PriceWatchDriver {
     @When("User clicks on register button")
     public void user_clicks_on_register_button() throws InterruptedException {
         Login_Page.registerButton().click();
-        Thread.sleep(3000);
-
+        Thread.sleep(5000);
     }
 
     @When("User clicks on cancel link")
@@ -108,12 +110,34 @@ public class Login_Steps extends PriceWatchDriver {
         assertEquals(Login_Page.registerSuccessMsg().getText(), msg);
     }
 
+    @When("User clicks on verify your email link")
+    public void user_clicks_on_verify_your_email_link() {
+        Login_Page.verifyYourEmailLink().click();
+    }
+
+    @When("User enters email and verification code")
+    public void user_enters_email_and_verification_code() throws SQLException, ClassNotFoundException {
+        Login_Page.verifyUserEmail().sendKeys(Login_Page.registrationEmail);
+        Login_Page.verificationCode().sendKeys(JDBCConnectionClass.connectToPriceWatchDBToGetEmailVerificationCode(Login_Page.registrationEmail));
+
+    }
+
+    @When("User clicks on verify button")
+    public void user_clicks_on_verify_button() {
+        Login_Page.verifyButton().click();
+        Waits.fluentWaitByLocator(driver, Login_Page.registerSuccessMessage);
+    }
+
+    @Then("User should get verification success message {string}")
+    public void user_should_get_verification_success_message(String msg) {
+        assertEquals(msg, Login_Page.registerSuccessMsg().getText());
+    }
+
+
     @After
     public void closeBrowser(){
         tearDown();
     }
-
-
 
 
 }

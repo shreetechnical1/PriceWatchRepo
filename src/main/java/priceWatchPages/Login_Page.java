@@ -23,13 +23,14 @@ public class Login_Page extends PriceWatchDriver {
     private static By registerLastName = By.cssSelector("#element-lastname");
     private static By registerButton = By.cssSelector(".btn.btn-default");
     private static By cancelLink = By.partialLinkText("Cancel");
-    private static By registerSuccessMessage = By.cssSelector("span[id = 'saveMessage'][class = 'success-msg']");
-    private static By verifyYourEmail = By.partialLinkText("Verify your Email");
+    public static By registerSuccessMessage = By.cssSelector("span[id = 'saveMessage'][class = 'success-msg']");
+    private static By verifyYourEmailLink = By.partialLinkText("Verify your Email");
     private static By verifyUserEmail = By.cssSelector("input[name = 'Email']");
     private static By verificationCode = By.cssSelector("input[name = 'EmailVerificationCode']");
     private static By verifyButton = By.cssSelector(".btn.btn-default");
     private static By resendVerificationCode = By.partialLinkText("Resend Verification");
 
+    public static String registrationEmail = "";
 
     public static WebElement loginOnNavBar(){
         Waits.fluentWaitByLocator(driver, loginOnNavBar);
@@ -101,8 +102,13 @@ public class Login_Page extends PriceWatchDriver {
     }
 
     public static WebElement registerSuccessMsg(){
-        Waits.waitForWebElementToBeVisible(driver, driver.findElement(registerSuccessMessage));
+       // Waits.waitForWebElementToBeVisible(driver, driver.findElement(registerSuccessMessage));
         return driver.findElement(registerSuccessMessage);
+    }
+
+    public static WebElement verifyYourEmailLink(){
+        Waits.fluentWaitByLocator(driver, verifyYourEmailLink);
+        return driver.findElement(verifyYourEmailLink);
     }
 
     public static WebElement verifyUserEmail(){

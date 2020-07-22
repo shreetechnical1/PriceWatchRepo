@@ -94,6 +94,5 @@ public class TrackProductPage_Test extends PriceWatchDriver {
         TrackProduct_Page.addToTrackingButton().click();
         Waits.fluentWaitByLocator(driver, TrackProduct_Page.trackProductErrorMsg);
         assertEquals("Please provide a numeric value for your desired target price (less than the current Item Price).", TrackProduct_Page.trackProductErrorMsg().getText());
-
     }
 }

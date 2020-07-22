@@ -6,7 +6,7 @@
       Given User logs in to PriceWatch
       When User enters track product URL without valid size and color
       And User clicks on search button for "error"
-      Then User should get track error message "Could not load Price of the item. Please choose a desired size/color/other particulars of the product in the eCommerce website and provide the URL."
+      Then User should get search error message "Could not load Price of the item. Please choose a desired size/color/other particulars of the product in the eCommerce website and provide the URL."
 
     Scenario: Search for a valid product
       Given User logs in to PriceWatch
