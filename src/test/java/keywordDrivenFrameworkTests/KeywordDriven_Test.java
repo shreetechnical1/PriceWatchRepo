@@ -9,6 +9,7 @@ public class KeywordDriven_Test {
 
     @Test
     public void loginWithValidCredentials(){
+        keywordEngine = new KeywordEngine();
         keywordEngine.startExecution("login");
 
     }
