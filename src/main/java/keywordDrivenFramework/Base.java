@@ -1,5 +1,7 @@
 package keywordDrivenFramework;
 
+import com.relevantcodes.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.ExtentTest;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -14,6 +16,17 @@ public class Base {
 
     public WebDriver driver1;
     public Properties prop;
+
+    public ExtentReports reports;
+    public ExtentTest logger;
+
+    //creating a constructor
+    public Base(){
+        //code will generate file Reports.html and put the report there
+        reports = new ExtentReports("src\\test\\java\\keywordDrivenFrameworkTests\\Report.html");
+
+    }
+
 
     public WebDriver init_driver(String browserName){
         if(browserName.equals("Chrome")){
@@ -53,5 +66,7 @@ public class Base {
 
         return prop;
     }
+
+
 
 }

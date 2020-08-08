@@ -5,12 +5,12 @@ import org.junit.Test;
 
 public class KeywordDriven_Test {
 
-    KeywordEngine keywordEngine;
+    KeywordEngine keywordEngine = new KeywordEngine();
 
     @Test
-    public void loginWithValidCredentials(){
-        keywordEngine = new KeywordEngine();
-        keywordEngine.startExecution("login");
+    public void startTestExecution() throws InterruptedException {
+        keywordEngine.startExecution("suite", "login");
 
     }
+
 }
