@@ -24,14 +24,14 @@ public class KeywordEngine {
     public Base base;
     public WebElement e;
 
-    public final String KEYWORD_SHEET_PATH = "C:\\Users\\chandrashekarn\\IdeaProjects\\PriceWatch\\src\\main\\java\\keywordDrivenFramework\\priceWatchKeyword.xlsx";
+    public final String KEYWORD_SHEET_PATH = "src/main/java/keywordDrivenFramework/priceWatchKeyword.xlsx";
 
     public void startExecution(String sheetName){
 
         //String locatorName = null;
         //String locatorValue = null;
 
-        InputStream file = null;
+        FileInputStream file = null;
         try {
             file = new FileInputStream(KEYWORD_SHEET_PATH);
         } catch (FileNotFoundException e) {
@@ -51,7 +51,7 @@ public class KeywordEngine {
 
         int k = 0; //counter for columns
 
-        for(int i = 0; i<sheet.getLeftCol(); i++){
+        for(int i = 0; i<sheet.getLastRowNum(); i++){
 
             //get the first row of the sheet and get the column values
             String locatorName = sheet.getRow(i+1).getCell(k+1).toString().trim();
