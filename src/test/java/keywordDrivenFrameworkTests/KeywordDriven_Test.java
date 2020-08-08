@@ -3,11 +3,13 @@ package keywordDrivenFrameworkTests;
 import keywordDrivenFramework.KeywordEngine;
 import org.junit.Test;
 
-public class KeywordDriven_Test extends KeywordEngine {
+public class KeywordDriven_Test {
+
+    KeywordEngine keywordEngine;
 
     @Test
     public void loginWithValidCredentials(){
-        startExecution("login");
+        keywordEngine.startExecution("login");
 
     }
 }
