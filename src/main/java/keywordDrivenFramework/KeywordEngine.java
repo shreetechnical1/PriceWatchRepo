@@ -10,6 +10,7 @@ import org.openqa.selenium.WebElement;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Properties;
 
 public class KeywordEngine {
@@ -23,14 +24,14 @@ public class KeywordEngine {
     public Base base;
     public WebElement e;
 
-    public final String KEYWORD_SHEET_PATH = "C:\\Users\\chandrashekarn\\IdeaProjects\\PriceWatch\\src\\main\\java\\keywordDrivenFramework\\priceWatchKeyword.xls";
+    public final String KEYWORD_SHEET_PATH = "C:\\Users\\chandrashekarn\\IdeaProjects\\PriceWatch\\src\\main\\java\\keywordDrivenFramework\\priceWatchKeyword.xlsx";
 
     public void startExecution(String sheetName){
 
         //String locatorName = null;
         //String locatorValue = null;
 
-        FileInputStream file = null;
+        InputStream file = null;
         try {
             file = new FileInputStream(KEYWORD_SHEET_PATH);
         } catch (FileNotFoundException e) {
